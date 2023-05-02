@@ -1,0 +1,33 @@
+CREATE TABLE actors (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+fullname TEXT,
+age INTEGER,
+movie_show TEXT);
+
+
+INSERT INTO actors (fullname, age, movie_show) VALUES ("Steve Carell","60", "The Office");
+INSERT INTO actors (fullname, age, movie_show) VALUES (" Samuel L. Jackson","74", "The Avengers");
+INSERT INTO actors (fullname, age, movie_show) VALUES (" Nick Offerman","52","Parks and Recreation");
+INSERT INTO actors (fullname, age, movie_show) VALUES ("Mila Kunis","39","That 70's Show");
+INSERT INTO actors (fullname, age, movie_show) VALUES ("Daniel Radcliffe","33","Harry Potter");
+INSERT INTO actors (fullname, age, movie_show) VALUES ("Tom Hanks","66","Forrest Gump");
+INSERT INTO actors (fullname, age, movie_show) VALUES ("Tom Holland","26","Spider Man");
+
+CREATE table wealth (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    actor_id INTEGER,
+    net_worth TEXT);
+    
+  INSERT INTO wealth (actor_id, net_worth) VALUES (1,"80 million");
+INSERT INTO wealth (actor_id, net_worth) VALUES (2,"250 million");
+INSERT INTO wealth (actor_id, net_worth) VALUES (3,"25 million");
+INSERT INTO wealth (actor_id, net_worth) VALUES (4,"75 million");
+INSERT INTO wealth (actor_id, net_worth) VALUES (5,"110 million");
+INSERT INTO wealth (actor_id, net_worth) VALUES (6,"400 million");
+INSERT INTO wealth (actor_id, net_worth) VALUES (7,"25 million");
+
+/*Return total net worth for each actor*/
+SELECT a.fullname AS Full_Name,w.net_worth AS Net_Worth
+FROM actors a
+JOIN wealth w
+ON a.id=w.actor_id;
